@@ -2,22 +2,48 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--color-blue-light);
+    background: var(--color-blu);
     color: white;
+    padding: 0.5rem 3rem;
 }
 
 .main-head nav h1{
     margin-bottom: 0rem;
+    font-size: 1.9rem;
+}
+.main-head nav h1 span {
+    display: block;
+    font-size: 1.1rem;
 }
 .main-head nav ul{
     display: flex;
     align-items: center;
-    gap: 1rem;    
+    gap: 1rem;
+    margin-bottom: 0rem;
 }
-.main-head nav ul li{
-    
+.main-head nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    position: relative;
+}
+.main-head nav ul li a::before{
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 0%;
+    background: white;
+    bottom: 0;
+    transition: var(--transition-3);
+}
+.main-head nav ul li a:hover::before{
+    width: 80%;
 }
 
+
+.main-head nav .toogle-menu{
+    display: none;
+}
 
 
 
