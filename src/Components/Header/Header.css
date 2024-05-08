@@ -1,0 +1,33 @@
+.main-head nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-blue-light);
+    color: white;
+}
+
+.main-head nav h1{
+    margin-bottom: 0rem;
+}
+.main-head nav ul{
+    display: flex;
+    align-items: center;
+    gap: 1rem;    
+}
+.main-head nav ul li{
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
