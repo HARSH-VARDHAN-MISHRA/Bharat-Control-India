@@ -13,7 +13,7 @@ const Header = () => {
         <header className='main-head'>
             <nav>
                 <div className="logo">
-                    <h1>Bharat <span>Control India</span></h1>
+                    <Link to="/"><h1>Bharat <span>Control India</span></h1></Link>
                 </div>
                 <div className={`nav-links  ${toggleMenu ? "active" : ""} `}>
                     <ul className="list-unstyled">

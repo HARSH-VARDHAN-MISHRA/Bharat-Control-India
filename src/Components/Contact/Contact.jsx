@@ -15,7 +15,7 @@ const Contact = () => {
                                     <li> Phone: <a href="tel:+919810450739">+91-9810450739</a> , <a href="tel:+919999193470">+91-9999193470</a></li>
                                     <li> Address: <a href="javascript:void(0)">G 738/739 A, RIICO Industrial Area Bhiwadi, Distt-Alwar, Rajasthan-301019</a></li>
                                 </ul>
-                                <div className="social-icons">
+                                <div className="social-icons mb-3">
                                     <a href="#" ><i className="fab fa-facebook-f"></i></a>
                                     <a href="#" ><i className="fab fa-twitter"></i></a>
                                     <a href="#" ><i className="fab fa-instagram"></i></a>

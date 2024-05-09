@@ -6,10 +6,13 @@
     color: white;
     padding: 0.5rem 3rem;
 }
-
+.main-head nav a{
+    text-decoration: none;
+}
 .main-head nav h1{
     margin-bottom: 0rem;
     font-size: 1.9rem;
+    color: white;
 }
 .main-head nav h1 span {
     display: block;
