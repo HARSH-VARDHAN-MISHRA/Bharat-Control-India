@@ -23,7 +23,7 @@ const CategorySection = () => {
             <div className="container py-0">
                 <div className="category-grid">
                     {allcategory && allcategory.map((item,index)=>(
-                        <Link to="" class="single-categ" key={index}>
+                        <Link to="/category-product-page" class="single-categ" key={index}>
                             <img src={item.catImg} alt={item.cateName} />
                             <div class="category-name">{item.cateName}</div>
                             <div class="layer">

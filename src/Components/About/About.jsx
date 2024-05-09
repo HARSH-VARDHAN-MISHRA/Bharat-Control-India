@@ -6,11 +6,9 @@ const About = () => {
   return (
     <>
         <section className="about">
-            <div className="container">
+            <div className="container pt-0">
                 <div className="row">
-                    <div className="col-md-4">
-                        <img src="https://i.ibb.co/f0cvfQ5/Marine-bronze-fitting-Male-hose-nipple-and-male-hose-elbow-5.jpg" alt="about-us" />
-                    </div>
+                    
                     <div className="col-md-8 content">
                         <h2>Welcome to <i>Bharat Control India</i></h2>
                         <p>Bharat Control India (Formerly known as BCI) is a non ferrous metal component manufacturer and exporter established in <strong>2010</strong> by <strong>Mr. Dinesh Mahajan</strong>. With state-of-the-art technology, we have design, analysis, manufacturing, and testing facilities under one roof backed with industry expertise.</p>
@@ -45,6 +43,9 @@ const About = () => {
                                 <span className="button-text">Know More</span>
                             </Link>
                         </div>
+                    </div>
+                    <div className="col-md-4 mb-5">
+                        <img src="https://i.ibb.co/f0cvfQ5/Marine-bronze-fitting-Male-hose-nipple-and-male-hose-elbow-5.jpg" alt="about-us" />
                     </div>
                 </div>
             </div>

@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import AllProducts from '../../Components/AllProducts/AllProducts'
+import Breadcrumb from '../../Components/Breadcrumb/Breadcrumb'
 
 const ProductPage = () => {
+  useEffect(() => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    })    
+  }, [])
   return (
     <>
-        <div>ProductPage</div>
-    
+        <Breadcrumb title="Category Name" middle={{ url: '', text: '' }} last='Category Name' />
+        <AllProducts/>
+        
     </>
   )
 }

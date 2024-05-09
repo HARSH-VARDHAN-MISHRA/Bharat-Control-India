@@ -88,3 +88,28 @@
     background: white;
     padding: 0.5rem;
 }
+
+@media only screen and (max-width: 1000px){
+    .category-grid {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 1rem;
+    }
+}
+@media only screen and (max-width: 600px){
+    .category-grid .single-categ img {
+        height: 250px;
+        object-fit: contain;
+    }
+}
+@media only screen and (max-width: 420px){
+    .category-grid {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap: 1rem;
+    }
+    .category-grid .single-categ .category-name {
+        bottom: 5%;
+        width: 80%;
+    }
+}

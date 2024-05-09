@@ -1,23 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import About from '../../Components/About/About'
 import LineHead from '../../Components/LineHead/LineHead'
 import CategorySection from '../../Components/CategorySection/CategorySection'
+import banner1 from './banner-1.jpeg'
+import Contact from '../../Components/Contact/Contact'
 
 const HomePage = () => {
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })    
+      }, [])
     return (
         <>
             {/* ---- caraSoul ----  */}
-            <div className="container-fluid p-0">
+            <div className="container-fluid p-0 mb-5 pb-5">
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="https://iscindiasales.co.in/static/media/banner-2.5960b744272bc70a6336.png" class="d-block w-100" alt="..." />
+                            <img src={banner1} class="d-block w-100" alt="..." />
                         </div>
                         <div class="carousel-item">
-                            <img src="https://iscindiasales.co.in/static/media/banner-2.5960b744272bc70a6336.png" class="d-block w-100" alt="..." />
+                            <img src={banner1} class="d-block w-100" alt="..." />
                         </div>
                         <div class="carousel-item">
-                            <img src="https://iscindiasales.co.in/static/media/banner-2.5960b744272bc70a6336.png" class="d-block w-100" alt="..." />
+                            <img src={banner1} class="d-block w-100" alt="..." />
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -34,6 +42,8 @@ const HomePage = () => {
             <About/>
             <LineHead title={"Our Products"}/>
             <CategorySection/>
+            <LineHead title={"Contact Us"}/>
+            <Contact/>
         </>
     )
 }
