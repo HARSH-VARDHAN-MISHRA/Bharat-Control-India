@@ -36,9 +36,9 @@ const EditCategory = () => {
 
     const handleSubmit = async(event)=>{
         event.preventDefault();
-        try {
+        try { 
             const submitResponse = await axios.post(`http://localhost:6500/api/v1/update-category/${id}`,formData);
-            // console.log(submitResponse)
+            console.log(submitResponse)
             toast.success("Category Updated Successfully")
             window.location.href='/all-category'
         } catch (error) {

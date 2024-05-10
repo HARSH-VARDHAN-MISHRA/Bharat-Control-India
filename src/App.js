@@ -34,11 +34,14 @@ function App() {
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/our-products' element={<CategoryPage />} />
-            <Route path='/category-product-page' element={<ProductPage />} />
-            <Route path='/product-page' element={<SingleProductPage />} />
+            {/* <Route path='/category-product-page' element={<ProductPage />} /> */}
+            {/* <Route path='/product-page' element={<SingleProductPage />} /> */}
             <Route path='/about-us' element={<AboutPage />} />
             <Route path='/contact-us' element={<ContactPage />} />
 
+            <Route path="/category/:name" element={<ProductPage/>} />
+            <Route path="/category/:categoryNaam/:name" element={<SingleProductPage/>} />
+            
             <Route path='/admin' element={<Login />} />
 
           </Routes>

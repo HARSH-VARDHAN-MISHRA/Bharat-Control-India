@@ -77,7 +77,12 @@ const EditProduct = () => {
     fetchData();
     handleFetch();
   }, []);
-  
+  const handleImageChange = (e, index) => {
+    const newValue = e.target.value; // Get the new value of the input field
+    const updatedFormData = [...formData.productImage]; // Create a copy of the formData array
+    updatedFormData[index] = newValue; // Update the value at the specified index
+    setFormData({ ...formData, productImage: updatedFormData }); // Update the state with the new formData array
+  };
   return (
     <>
       <ToastContainer />
@@ -115,11 +120,20 @@ const EditProduct = () => {
             </div>
 
             {formData.productImage.map((item, index) => (
-              <div className="col-md-3" key={index}>
-                <label htmlFor={`productImage${index}`} className="form-label">Product Image</label>
-                <input type="text" className="form-control" value={formData.productImage[index]} name={`productImage${index}`} onChange={(e) => handleChange(e, index)} placeholder={`Product Image URL ${index + 1}`} aria-label="Product Image" />
-              </div>
-            ))}
+  <div className="col-md-3" key={index}>
+    <label htmlFor={`productImage${index}`} className="form-label">Product Image</label>
+    <input 
+      type="text" 
+      className="form-control" 
+      value={formData.productImage[index]} 
+      name={`productImage${index}`}  
+      placeholder={`Product Image URL ${index + 1}`} 
+      aria-label="Product Image"
+      onChange={(e) => handleImageChange(e, index)} // Assuming handleImageChange is your onChange handler
+    />
+  </div>
+))}
+
 
             <div className="col-md-3">
               <label htmlFor="sizes" className="form-label">Size</label>

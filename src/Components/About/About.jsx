@@ -1,12 +1,41 @@
 import React from 'react'
 import './About.css'
 import { Link } from 'react-router-dom'
+import LineHead from '../LineHead/LineHead'
+
+import defence from './defence.png'
+import electrical from './electrical-power-transmission.png'
+import fire from './fire-fighting.png'
+import oilGas from './oil-gas.png'
+import sanitary from './plumbing-sanitary.png'
 
 const About = () => {
+    const serviceData = [
+        {
+            iconImage:sanitary,
+            serviceName : "Plumbing & Sanitary",
+        },
+        {
+            iconImage:fire,
+            serviceName : "Fire fighting",
+        },
+        {
+            iconImage:oilGas,
+            serviceName : "Oil & Gas",
+        },
+        {
+            iconImage:electrical,
+            serviceName : "Electrical & Power transmission",
+        },
+        {
+            iconImage:defence,
+            serviceName : "Defence",
+        },
+    ]
   return (
     <>
         <section className="about">
-            <div className="container pt-0">
+            <div className="container py-0">
                 <div className="row">
                     
                     <div className="col-md-8 content">
@@ -14,26 +43,6 @@ const About = () => {
                         <p>Bharat Control India (Formerly known as BCI) is a non ferrous metal component manufacturer and exporter established in <strong>2010</strong> by <strong>Mr. Dinesh Mahajan</strong>. With state-of-the-art technology, we have design, analysis, manufacturing, and testing facilities under one roof backed with industry expertise.</p>
                         <p>We are majorly engaged in the production and supply of <strong>Brass Plumbing Components, brass precision turned components, bronze fittings, bronze bearings.</strong></p>
                         <p>We continuously work on improving our manufacturing processes by adopting flexibility in all the possible areas.</p>
-
-                        <h4>Industries We Servered</h4>
-
-                        <div className="grid row">
-                            <div className="single col-md-4 col-6">
-                                <h6> <i class="fa-solid fa-angles-right"></i> Plumbing & Sanitary</h6>
-                            </div>
-                            <div className="single col-md-4 col-6">
-                                <h6> <i class="fa-solid fa-angles-right"></i> Fire fighting</h6>
-                            </div>
-                            <div className="single col-md-4 col-6">
-                                <h6> <i class="fa-solid fa-angles-right"></i> Oil & Gas</h6>
-                            </div>
-                            <div className="single col-md-4 col-6">
-                                <h6> <i class="fa-solid fa-angles-right"></i> Electrical & Power transmission</h6>
-                            </div>
-                            <div className="single col-md-4 col-6">
-                                <h6> <i class="fa-solid fa-angles-right"></i> Defence</h6>
-                            </div>
-                        </div>
                         
                         <div className="about-btn">
                             <Link to="/about-us" className="button1">
@@ -46,6 +55,22 @@ const About = () => {
                     </div>
                     <div className="col-md-4 mb-5">
                         <img src="https://i.ibb.co/f0cvfQ5/Marine-bronze-fitting-Male-hose-nipple-and-male-hose-elbow-5.jpg" alt="about-us" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <LineHead title={"Industries served"}/>
+        <section className="our-services">
+            <div className="container pt-0">
+                <div className="row">
+                    <div className="grid-5" >
+                    {serviceData && serviceData.map((item,index)=>(
+                        <div className=" text-center single" key={index}>
+                            <img src={item.iconImage} alt={item.serviceName} className="icon" />
+                            <p>{item.serviceName}</p>
+                        </div>
+                    ))}
                     </div>
                 </div>
             </div>

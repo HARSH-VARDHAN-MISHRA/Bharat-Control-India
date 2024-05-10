@@ -11,6 +11,9 @@ body{
   width: 100%;
   overflow-x: hidden;
 }
+#root{
+  overflow-x: hidden;
+}
 :root{
   --color-main: #2E3F97;  
   --color-main-light: #53b6fd;  

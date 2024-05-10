@@ -50,7 +50,7 @@ const AdminProductPage = () => {
             <section className="tables">
                 <div className="container overflow-auto">
                     <div className="row">
-                        <table className="table table-bordered">
+                        <table className="table table-bordered" style={{minWidth:'800px'}}>
                             <thead>
                                 <tr>
                                     <th scope="col">S.no</th>

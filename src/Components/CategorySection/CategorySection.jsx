@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './CategorySection.css'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const CategorySection = () => {
     const allcategory = [
@@ -17,18 +18,33 @@ const CategorySection = () => {
             cateName : "Stainless steel pipe fittings"
         }
     ]
+
+    const [category,setCategory] = useState([]);
+
+    const handleFetch = async ()=>{
+        try {
+            const res = await axios.get("http://localhost:6500/api/v1/get-all-category");
+            console.log(res.data.data);
+            setCategory(res.data.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    useEffect(()=>{
+        handleFetch();
+    },[])
   return (
     <>
         <section className="categories">
             <div className="container py-0">
                 <div className="category-grid">
-                    {allcategory && allcategory.map((item,index)=>(
-                        <Link to="/category-product-page" class="single-categ" key={index}>
-                            <img src={item.catImg} alt={item.cateName} />
-                            <div class="category-name">{item.cateName}</div>
-                            <div class="layer">
+                    {category && category.map((item,index)=>(
+                        <Link to={`/category/${item.categoryName}`} class="single-categ" key={index}>
+                            <img src={item.categoryImage} alt={item.categoryName} />
+                            <div class="category-name">{item.categoryName}</div>
+                            {/* <div class="layer">
                                 <p><i class="fa-solid fa-link"></i></p>
-                            </div>
+                            </div> */}
                         </Link>
 
                     ))}

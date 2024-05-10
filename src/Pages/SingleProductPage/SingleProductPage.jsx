@@ -3,82 +3,104 @@ import Breadcrumb from '../../Components/Breadcrumb/Breadcrumb'
 import './SingleProductPage.css'
 import LineHead from '../../Components/LineHead/LineHead'
 import AllProducts from '../../Components/AllProducts/AllProducts'
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
+import CategorySection from '../../Components/CategorySection/CategorySection'
 
 const SingleProductPage = () => {
-    const product = {
-        id: 1,
-        productName: "Reducing bush",
-        productImages: ["https://i.ibb.co/MpnMvMW/Marine-bronze-fitting-Reducing-bush-1.jpg", "https://i.ibb.co/dWTV3MW/Marine-bronze-fitting-Reducing-bush-2.jpg", "https://i.ibb.co/Cb9ByD9/Marine-bronze-fitting-Reducing-bush-3.jpg", "https://i.ibb.co/yq4mDsG/Marine-bronze-fitting-Reducing-bush-4.jpg"],
-        productCategory: "Marine Bronze Fitting",
-        productSizes: "12x12 , 15x20 , 10x12",
-        CategoryMaterial: "Your Material Name",
-        Application: "Application",
-        Desc: "Bharat Control India is an established name in the leading metal industries and we aspire to grow even bigger in the coming time. We believe in adopting all the latest technologies that can help us in manufacturing supreme quality products with the utmost automation."
+    const { categoryNaam, name } = useParams();
+    const [productMa, setProduct] = useState([]);
+
+    const handleFetch = async () => {
+        const res = await axios.get("http://localhost:6500/api/v1/get-all-product");
+        console.log(res.data.data);
+
+        const filterSingleProduct = res.data.data.filter(item => item.categoryName === categoryNaam && item.productName === name);
+        setProduct(filterSingleProduct);
+        console.log(productMa);
     }
-    const [mainImage, setMainImage] = useState(product.productImages[0]);
+    const [mainImage, setMainImage] = useState(productMa && productMa.length > 0 ? productMa.map((item) => item.productImage[0]) : productMa.map((items) => items.productImage[1]));
 
     const handleImageClick = (imgSrc) => {
         setMainImage(imgSrc);
-    }
+    };
+
+
     useEffect(() => {
         window.scrollTo({
             top: 0,
             behavior: "smooth"
-        })    
-      }, [])
+        });
+        handleFetch();
+    }, [])
+
     return (
         <>
-            <Breadcrumb title="Product Name" middle={{ url: '/our-products', text: 'Our Products' }} last='Product Name' />
-            <section className="product-page">
-                <div className="container py-0">
-                    <div className="row">
-                        <div className="col-md-5">
-                            <div className="images">
-                                <div className="main-img">
-                                    <img src={mainImage} alt={product.productName} />
-                                </div>
-                                <div className="row">
-                                    {product.productImages && product.productImages.map((imgItem, imgIndex) => (
-                                        <div className="col-3" key={imgIndex}>
-                                            <img
-                                                className='small-img'
-                                                src={imgItem}
-                                                alt={product.productName}
-                                                onClick={() => { handleImageClick(imgItem) }}
-                                            />
-                                        </div>
-                                    ))}
+            {console.log(productMa)}
+            <Breadcrumb title={name} middle={{ url: '/our-products', text: 'Our Products' }} last={name} />
+
+            {productMa && productMa.map((productItem, productIndex) => (
+                <section className="product-page" key={productIndex}>
+                    <div className="container py-0">
+                        <div className="row">
+                            <div className="col-md-5">
+                                <div className="images">
+                                    <div className="main-img">
+                                        <img
+                                            src={mainImage}
+                                            onError={(e) => {
+                                                e.target.src = productItem.productImage && productItem.productImage.length > 0
+                                                    ? productItem.productImage[0]
+                                                    : 'fallback_image_url_here'; // Provide a fallback image URL here
+                                            }}
+                                            alt={productItem.productName}
+                                        />
+                                    </div>
+
+                                    <div className="row">
+                                        {productItem.productImage && productItem.productImage.map((imgItem, imgIndex) => (
+                                            <div className="col-3" key={imgIndex}>
+                                                <img
+                                                    className='small-img'
+                                                    src={imgItem}
+                                                    alt={productItem.productName}
+                                                    onClick={() => { handleImageClick(imgItem) }}
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-md-7">
-                            <h2>{product.productName}</h2>
-                            <h4>{product.productCategory}</h4>
-                            <p className='desc'>{product.Desc}</p>
+                            <div className="col-md-7">
+                                <h2>{productItem.productName}</h2>
+                                <h4>{productItem.categoryName}</h4>
+                                <p className='desc'>{productItem.productDesc}</p>
 
-                            <table class="table table-bordered">
-                                <tbody>
-                                    <tr>
-                                        <th scope="col">Sizes</th>
-                                        <td>{product.productSizes}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">Material</th>
-                                        <td>{product.CategoryMaterial}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">Application</th>
-                                        <td>{product.Application}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="col">Sizes</th>
+                                            <td>{productItem.sizes}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Material</th>
+                                            <td>{productItem.material}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Application</th>
+                                            <td>{productItem.application}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <LineHead title={"Related Products"}/>
-            <AllProducts/>
+            ))}
+
+            <LineHead title={"Related Products"} />
+            <CategorySection/>
         </>
     )
 }
