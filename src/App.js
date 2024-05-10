@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import './App.css';
 import Header from "./Components/Header/Header";
@@ -10,11 +10,27 @@ import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 import ContactPage from "./Pages/ContactPage/ContactPage";
 import AboutPage from "./Pages/AboutPage/AboutPage";
 
+
+import Dashboard from './admin/Dashboard/Dashboard';
+import Login from "./admin/auth/Login";
+
 function App() {
+  const getAdminStatus = sessionStorage.getItem('admin') || false
+  // console.log(getAdminStatus)
+  const [adminLogin, setAdminLogin] = useState(false)
+  useEffect(() => {
+    setAdminLogin(getAdminStatus)
+  }, [getAdminStatus])
+
   return (
     <>
-      <BrowserRouter>
-        <Header/>
+      {getAdminStatus ? (
+        <>
+          <Dashboard/>
+        </>
+      ) : (
+        <>
+          <Header />
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/our-products' element={<CategoryPage />} />
@@ -22,9 +38,15 @@ function App() {
             <Route path='/product-page' element={<SingleProductPage />} />
             <Route path='/about-us' element={<AboutPage />} />
             <Route path='/contact-us' element={<ContactPage />} />
+
+            <Route path='/admin' element={<Login />} />
+
           </Routes>
-        <Footer/>
-      </BrowserRouter>
+          <Footer />
+        </>
+      )}
+
+
     </>
   );
 }

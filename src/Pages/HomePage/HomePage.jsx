@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import About from '../../Components/About/About'
 import LineHead from '../../Components/LineHead/LineHead'
 import CategorySection from '../../Components/CategorySection/CategorySection'
-import banner1 from './banner-1.jpeg'
+import banner1 from './banner-1.jpg'
 import banner2 from './banner-2.jpg'
 import banner3 from './banner-3.jpg'
 import Contact from '../../Components/Contact/Contact'
@@ -25,6 +25,9 @@ const HomePage = () => {
                         </div>
                         <div class="carousel-item">
                             <img src={banner3} class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item">
+                            <img src={banner1} class="d-block w-100" alt="..." />
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
