@@ -9,7 +9,7 @@ const AdminCategory = () => {
 
     const handleFetch = async()=>{
         try {
-            const res = await axios.get('http://localhost:6500/api/v1/get-all-category');
+            const res = await axios.get('https://bci-backend.onrender.com/api/v1/get-all-category');
             setCategory(res.data.data)
             console.log(categories)
         } catch (error) {
@@ -22,7 +22,7 @@ const AdminCategory = () => {
     },[])
     const hadndleDelete = async (id)=>{
         try {
-            const res = await axios.delete(`http://localhost:6500/api/v1/delete-category/${id}`);
+            const res = await axios.delete(`https://bci-backend.onrender.com/api/v1/delete-category/${id}`);
             console.log(res.data)
             toast.success("Category Deleted Successfully")
             handleFetch()

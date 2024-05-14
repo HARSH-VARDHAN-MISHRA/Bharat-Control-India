@@ -21,7 +21,7 @@ const AddCategory = () => {
   const handleSubmit = async(event)=>{
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:6500/api/v1/create-category',formData);
+      const response = await axios.post('https://bci-backend.onrender.com/api/v1/create-category',formData);
       // console.log(response.data)
       toast.success("Category Added Successfully !!")
       window.location.href='/all-category'

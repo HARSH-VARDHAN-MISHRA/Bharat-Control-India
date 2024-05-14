@@ -23,7 +23,7 @@ const CategorySection = () => {
 
     const handleFetch = async ()=>{
         try {
-            const res = await axios.get("http://localhost:6500/api/v1/get-all-category");
+            const res = await axios.get("https://bci-backend.onrender.com/api/v1/get-all-category");
             console.log(res.data.data);
             setCategory(res.data.data);
         } catch (error) {

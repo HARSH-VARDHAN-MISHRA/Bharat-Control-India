@@ -34,8 +34,8 @@ const About = () => {
     ]
   return (
     <>
-        <section className="about">
-            <div className="container py-0">
+        <section className="about" id="begin">
+            <div className="container ">
                 <div className="row">
                     
                     <div className="col-md-8 content">

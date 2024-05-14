@@ -8,6 +8,9 @@ import banner3 from './banner-3.jpg'
 import Contact from '../../Components/Contact/Contact'
 import './HomePage.css'
 
+import Header from '../../Components/Header/Header'
+
+
 const HomePage = () => {
     useEffect(() => {
         window.scrollTo({
@@ -15,12 +18,12 @@ const HomePage = () => {
             behavior: "smooth"
         })
       }, [])
-
+      
     
     return (
         <>
             {/* ---- caraSoul ----  */}
-            <div className="container-fluid p-0 mb-sm-5">
+            {/* <div className="container-fluid p-0 mb-sm-5">
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -42,7 +45,9 @@ const HomePage = () => {
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-            </div>
+            </div> */}
+
+
 
             <About/>
 

@@ -10,9 +10,11 @@ import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 import ContactPage from "./Pages/ContactPage/ContactPage";
 import AboutPage from "./Pages/AboutPage/AboutPage";
 
+import { useLocation } from 'react-router-dom'
 
 import Dashboard from './admin/Dashboard/Dashboard';
 import Login from "./admin/auth/Login";
+import HomeHeader from "./Components/HomeHeader/HomeHeader";
 
 function App() {
   const getAdminStatus = sessionStorage.getItem('admin') || false
@@ -22,6 +24,10 @@ function App() {
     setAdminLogin(getAdminStatus)
   }, [getAdminStatus])
 
+  const location = useLocation();
+      const isHomePage = location.pathname === '/'; // Assuming '/' is the home page route
+
+
   return (
     <>
       {getAdminStatus ? (
@@ -30,7 +36,8 @@ function App() {
         </>
       ) : (
         <>
-          <Header />
+          {/* <Header /> */}
+        {isHomePage ? <HomeHeader/> : <Header />}
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/our-products' element={<CategoryPage />} />

@@ -28,7 +28,7 @@ const EditProduct = () => {
 
   const handleFetch = async () => {
     try {
-      const res = await axios.get('http://localhost:6500/api/v1/get-all-product');
+      const res = await axios.get('https://bci-backend.onrender.com/api/v1/get-all-product');
       // console.log(res.data.data)
       const product = res.data.data
       const fillterProduct = product.filter((item) => item._id === id)
@@ -52,7 +52,7 @@ const EditProduct = () => {
     event.preventDefault();
     try {
       console.log("Formdata", formData)
-      const submitResponse = await axios.post(`http://localhost:6500/api/v1/update-product/${id}`, formData);
+      const submitResponse = await axios.post(`https://bci-backend.onrender.com/api/v1/update-product/${id}`, formData);
       console.log(submitResponse)
       toast.success("Product Updated Successfully")
       window.location.href = '/all-products'
@@ -67,7 +67,7 @@ const EditProduct = () => {
     const fetchData = async () => {
       try {
         const [categoriesRes] = await Promise.all([
-          axios.get('http://localhost:6500/api/v1/get-all-category')
+          axios.get('https://bci-backend.onrender.com/api/v1/get-all-category')
         ]);
         setCategories(categoriesRes.data.data.map(item => item.categoryName));
       } catch (error) {

@@ -9,7 +9,7 @@ const ProductPage = () => {
   const [categoryProduct,setCategoryProduct] = useState([]);
 
   const handleFetch = async ()=>{
-    const res = await axios.get("http://localhost:6500/api/v1/get-all-product");
+    const res = await axios.get("https://bci-backend.onrender.com/api/v1/get-all-product");
     console.log(res.data.data);
 
     const filterSingleCategory = res.data.data.filter(item => item.categoryName === name)
