@@ -9,6 +9,11 @@
 .main-head nav a{
     text-decoration: none;
 }
+.main-head nav .logo img{
+    height: 70px;
+    /* background: white; */
+    filter: invert(100%);
+}
 .main-head nav h1{
     margin-bottom: 0rem;
     font-size: 1.9rem;

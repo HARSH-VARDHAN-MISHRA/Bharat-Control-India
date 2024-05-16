@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Header.css'
+import logo from './logo.png'
 
 const Header = () => {
     const [toggleMenu ,setToggleMenu] = useState(false);
@@ -13,7 +14,10 @@ const Header = () => {
         <header className='main-head'>
             <nav>
                 <div className="logo">
-                    <Link to="/"><h1>Bharat <span>Control India</span></h1></Link>
+                    <Link to="/">
+                        {/* <h1>Bharat <span>Control India</span></h1> */}
+                        <img src={logo} alt="bci-logo" />
+                    </Link>
                 </div>
                 <div className={`nav-links  ${toggleMenu ? "active" : ""} `}>
                     <ul className="list-unstyled">

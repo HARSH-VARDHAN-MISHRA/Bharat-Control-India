@@ -25,16 +25,19 @@ const Contact = () => {
                         </div>
                         <div className="col-md-6">
                             <div className="contact-form">
-                                <form>
+                                <form action="https://formsubmit.co/Dinesh@Bharatcontrolindia.com" method="POST">
                                     <div className="form-group">
-                                        <input type="text"  id="name" placeholder="Your Name" required />
+                                        <input type="text" name="Name" id="name" placeholder="Your Name" required />
                                     </div>
                                     <div className="form-group">
-                                        <input type="email"  id="email" placeholder="Your Email" required />
+                                        <input type="email" name="Email" id="email" placeholder="Your Email" required />
                                     </div>
                                     <div className="form-group">
-                                        <textarea  id="message" rows="5" placeholder="Your Message" required></textarea>
+                                        <textarea  id="message" name="Message" rows="5" placeholder="Your Message" required></textarea>
                                     </div>
+                                    <input type="hidden" name="_captcha" value="false" />
+                                    <input type="hidden" name="_next" value="https://bharatcontrolindia.com/contact-us" />
+                                    <input type="hidden" name="_template" value="table" />
                                     <button type="submit" className="btn btn-primary">Send Message</button>
                                 </form>
                             </div>
